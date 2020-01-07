@@ -1,7 +1,5 @@
 package com.bj.mt.wwh.leetcode.string;
 
-import java.util.Date;
-
 /**
  * @author wangwenhao06@meituan.com
  * @create 2019-12-29 下午2:49
@@ -15,13 +13,17 @@ public class ZigZagConversion {
 
         char[][] strArray = new char[numRows][s.length()];
         // 把字符串填写到二维数组中 数字游戏
-        int cnt = 1, rows = 0, cols = 0;
+        int rows = 0, cols = 0;
 
-        // 是否向上走 行数增加
+        // 是否向上走 行数增加 行 数字变化123212321 /1234321234321
         boolean up = true;
-        strArray[0][cols] = s.charAt(cnt - 1);
-        cnt++;
-        while (cnt <= s.length()) {
+
+        for (int cnt = 1; cnt <= s.length(); cnt++) {
+            if (cnt == 1) {
+                strArray[0][cols] = s.charAt(cnt - 1);
+                continue;
+            }
+
             if (rows == numRows - 1) {
                 up = false;
             }
@@ -37,7 +39,6 @@ public class ZigZagConversion {
                 }
             }
             strArray[rows][cols] = s.charAt(cnt - 1);
-            cnt++;
         }
 
         StringBuilder sb = new StringBuilder();
@@ -56,6 +57,6 @@ public class ZigZagConversion {
     public static void main(String[] args) {
         String s = "PAYPALISHIRING";
         int numRows = 3;
-        System.out.println(new Date());
+        System.out.println(convert(s, numRows));
     }
 }
