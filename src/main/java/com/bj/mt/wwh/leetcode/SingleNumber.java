@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * @author wangwenhao06@meituan.com
  * @create 2019-05-27 下午12:34
+ * LeetCode 136 异或
  **/
 public class SingleNumber {
     public int singleNumber(int[] nums) {
